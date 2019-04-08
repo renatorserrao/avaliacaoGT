@@ -6,9 +6,10 @@
     Executar o script de criação do Banco de Dados e criação da tabela.
     
 4 - Para subir o backend (projeto 'cadastro'), basta exectar o método 'CadastroApplication.java'. O projeto subirá utilizando o Tomcat embarcado do SpringBoot.
-    Outra forma é executar o 'Maven Build' e executar o pacote '.jar' gerado dentro do target do projeto.
+    - Outra forma é executar o 'Maven Build' e executar o pacote '.jar' gerado dentro do target do projeto.
+    - O projeto tambem pode ser adicionado a um servidor Tomcat.
     
 5 - o projeto backend está configurado para rodar em http://localhost:8080.
-6 - Para subir o frontend (projeto 'gt4wpessoa'), utilizar o comando 'ng serve --proxy-config proxy.config.js'
+6 - Para subir o frontend (projeto 'gt4wpessoa'), utilizar o comando 'ng serve'
 7  o projeto frpntend está configurado para rodar em http://localhost:4200/
 8 - recomendo o uso do google Chrome como navegador

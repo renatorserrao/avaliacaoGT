@@ -79,7 +79,7 @@ public class PessoaResource {
 	
 		 
 	  
-	  @RequestMapping(value = "/buscar/{id}", method = RequestMethod.GET)
+	  @RequestMapping(value = "/buscar/{id}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
 	  public RespostaGeneric<PessoaDTO> buscar(@PathVariable("id") Integer id) throws Exception {
 	    Pessoa p = pessoaDAO.find(id);
 	    
@@ -157,7 +157,7 @@ public class PessoaResource {
 		  return new ResponseEntity<List<Estado>>(estado, HttpStatus.OK);
 	  }
 	  
-	  @RequestMapping(value="/carregaMap", method = RequestMethod.GET)
+	  @RequestMapping(value="/carregaMap", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
 	  public  ResponseEntity<List<PessoaPorEstadoDTO>> countCadastros() {
 		  List<PessoaPorEstadoDTO> listPessoaEstado = pessoaDAO.count();
 			  System.out.println("tamanho-- "+listPessoaEstado.size());

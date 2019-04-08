@@ -1,8 +1,9 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Estado } from './estado';
+import { environment } from 'src/environments/environment';
 
-const API = 'http://localhost:4200/api'
+
 
 @Injectable({ providedIn: 'root' })
 export class EstadoService {
@@ -10,6 +11,6 @@ export class EstadoService {
 
     listEstado(){
        return this.http
-            .get<Estado[]>(API + '/pessoa/carregaCombo');
+            .get<Estado[]>(environment.host + '/pessoa/carregaCombo');
     }
 }

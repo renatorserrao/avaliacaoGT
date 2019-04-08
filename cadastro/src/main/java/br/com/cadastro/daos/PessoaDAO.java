@@ -33,8 +33,8 @@ public class PessoaDAO {
 		
 		nativeQuery.append(" select distinct(p.id_estado) as id,  ");
 		nativeQuery.append(" 		(select count(p1.id_estado)  "); 
-		nativeQuery.append(" 			from Pessoa p1 where p1.id_estado = p.id_estado) as qtd "); 
-		nativeQuery.append(" from Pessoa p ");
+		nativeQuery.append(" 			from pessoa p1 where p1.id_estado = p.id_estado) as qtd "); 
+		nativeQuery.append(" from pessoa p ");
 		
 		Query query = manager.createNativeQuery(nativeQuery.toString());
 		

@@ -1,0 +1,13 @@
+CREATE DATABASE `gt4w` /*!40100 DEFAULT CHARACTER SET utf8 */;
+
+CREATE TABLE `pessoa` (
+  `idpessoa` int(11) NOT NULL AUTO_INCREMENT,
+  `cpf` varchar(255) DEFAULT NULL,
+  `dtnascimento` date DEFAULT NULL,
+  `id_estado` int(11) NOT NULL,
+  `id_regiao` int(11) NOT NULL,
+  `nome` varchar(255) DEFAULT NULL,
+  `peso` float DEFAULT NULL,
+  PRIMARY KEY (`idpessoa`),
+  UNIQUE KEY `cpf_UNIQUE` (`cpf`)
+) ENGINE=MyISAM AUTO_INCREMENT=32 DEFAULT CHARSET=utf8;

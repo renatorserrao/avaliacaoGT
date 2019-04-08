@@ -1,0 +1,12 @@
+
+<!-- <select class="form-control">
+  <option *ngFor="let est of estado" [value]= "est.idestadoregiao" required>
+    {{est.nome}} - {{est.sigla}}
+  </option>
+</select>  -->
+
+<mat-select disableRipple class="form-control" [(ngModel)]="model.estado" #estadoselect="ngModel" name="estadoselect" [(value)]="model.idEstado">   
+    <mat-option *ngFor="let est of estados" [value]= "est">
+        {{est.nome}} - {{est.sigla}}
+    </mat-option>
+</mat-select> 

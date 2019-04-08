@@ -1,0 +1,34 @@
+<div class="container">
+    <div class="row">
+          <div class="row col-md-12">
+            <span class="col-md-7"></span>
+            <label class="form-control-label col-md-1" id="labelFiltro">Filtro:</label>
+            <input class="form-control col-md-4" type="text" name="search" [(ngModel)]="filter" id="inputFiltro">
+        </div>   
+        <table class="table table-striped table-hover">   
+               <thead class="thead-dark"> 
+                   <tr>
+                     <th scope="col">Nome</th>
+                     <th scope="col">CPF</th>
+                     <th scope="col">Data de Nascimento</th>
+                     <th scope="col">Peso</th>
+                     <th scope="col">Estado</th>
+                     <th scope="col">Detalhe</th>
+                   </tr>
+               </thead>
+               <tbody>
+                  <ng-container *ngFor="let p of pessoa | filter:filter | paginate: { itemsPerPage: 5, currentPage: paginaAtual }; let i = index">
+                    <tr  scope="row">
+                        <td>{{p.nome}}</td>
+                        <td>{{p.cpf | mask:"000.000.000-00"}}</td>
+                        <td>{{p.dtnascimento}}</td>
+                        <td>{{p.peso}}</td>
+                        <td>{{p.estado.nome}} - {{p.estado.sigla}}</td>
+                        <td><button  type="button" class="btn btn-info" [routerLink]= "['/pessoa/form', p.idpessoa]">Detalhe</button></td>
+                    </tr>
+                  </ng-container>
+               </tbody>
+               <pagination-controls (pageChange)="paginaAtual = $event" previousLabel="Anterior" nextLabel="Próximo"></pagination-controls>
+           </table>
+    </div>
+ </div>

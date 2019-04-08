@@ -1,0 +1,9 @@
+#Iformações sobre o Projeto de cadastro de Pessoa
+
+1 - BackEnd desenvolvido em REST com SpringBoot
+2 - FrontEnd desenvolvido com angular versão 6.0.3
+3 - Foi utilizado como Banco de Dados o MySQL
+4 - Para subir o backend, basta exectar o método 'CadastroApplication.java'. O projeto subirá utilizando o Tomcat embarcado do SpringBoot. 
+5 - o projeto backend está configurado para rodar em http://localhost:8080.
+6 - Para subir o frontend utilizar o comando 'ng serve --proxy-config proxy.config.js'
+7 - recomendo o uso do google Chrome como navegador

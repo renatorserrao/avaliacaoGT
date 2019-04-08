@@ -1,17 +1,16 @@
 <notifier-container></notifier-container>
-<nav class="navbar navbar-toggleable-md navbar-light bg-faded">
-  <div class="container-fluid">
-        <div class="navbar-header">
-            <h1>Cadastro de Pessoa</h1>
-        </div>
-        <nav class="collapse navbar-collapse col-md-4" id="navbarSupportedContent">
+<nav class="navbar navbar-expand-lg navbar-light bg-faded d-flex justify-content-between">
+            <h1 class="xnavbar-brand">Cadastro de Pessoa</h1>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+        <div class="collapse navbar-collapse col-md-4 align-self-end" id="navbarSupportedContent">
             <form class="form-inline">
                 <button class="btn btn-outline-success" type="button" routerLink="/pessoa/lista">Home </button>
                 <button class="btn btn-outline-success" type="button" routerLink="pessoa/form">Novo  Cadastro</button>
                 <button class="btn btn-outline-success" type="button" routerLink="maps">Mapa de Pessoas Cadastradas</button>
             </form>
-        </nav>
-    </div>
+        </div>
 </nav>
 
 <router-outlet></router-outlet>

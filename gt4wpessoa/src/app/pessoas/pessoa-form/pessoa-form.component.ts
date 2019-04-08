@@ -44,7 +44,7 @@ export class PessoaFormComponent implements OnInit {
     this.estadoService.listEstado().subscribe(estados => this.estados = estados);
     this.estados.sort((a,b) => a.nome.localeCompare(b.nome));
     this.model = {};
-    console.log(this.activatedRoute.snapshot.params.id);
+    //console.log(this.activatedRoute.snapshot.params.id);
     
     
       if(this.activatedRoute.snapshot.params.id){
@@ -52,12 +52,12 @@ export class PessoaFormComponent implements OnInit {
         this.pessoaService.findById(id)
         .subscribe(r =>{
             this.pessoa = r.objeto;
-            console.log("this.pessoa.cpf "+this.pessoa.cpf)
+            //console.log("this.pessoa.cpf "+this.pessoa.cpf)
             this.model = this.pessoa;
             var datePipe = new DatePipe('en-US'); 
             var newDate = new Date(this.parseDate(this.model.dtnascimento));
             this.model.dtnascimento = datePipe.transform(newDate, 'yyyy-MM-dd');
-            console.log("this.model.estado-- "+this.model.estado);
+            //console.log("this.model.estado-- "+this.model.estado);
            
         });
       }
@@ -67,7 +67,7 @@ export class PessoaFormComponent implements OnInit {
   validarCPF() {
     
     const strCPF = this.model.cpf;
-    console.log(this.model.cpf);
+    //console.log(this.model.cpf);
     
     let Soma;
     let Resto;
@@ -101,22 +101,22 @@ export class PessoaFormComponent implements OnInit {
     return true;
   }
 
-  onSelect(id) {
+ /*  onSelect(id) {
     console.log(id);
     this.model.idEstado = id.substring(0,2);
     this.model.idRegiao = id.substring(3);
   
-  }
+  } */
 
   
   salvar(){
     var datePipe = new DatePipe('en-US');
     this.model.dtnascimento = datePipe.transform(this.model.dtnascimento, 'dd/MM/yyyy');
-    console.log(this.model.estado);
+    //console.log(this.model.estado);
     this.model.idEstado = this.model.estado.id;
     this.model.idRegiao = this.model.estado.regiao.id;
-    console.log(this.model.idEstado);
-    console.log(this.model.idRegiao);
+    //console.log(this.model.idEstado);
+    //console.log(this.model.idRegiao);
     if(!this.validarCPF()){
 
     }else if(this.model.idEstado==0 || this.model.idEstado == null){
@@ -136,7 +136,7 @@ export class PessoaFormComponent implements OnInit {
         }
         else {
           this.notifier.notify('error',r.mensagem);
-          console.log(r);
+          //console.log(r);
         }
         
       });

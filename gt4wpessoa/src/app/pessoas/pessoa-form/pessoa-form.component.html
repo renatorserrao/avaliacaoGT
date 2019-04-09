@@ -1,6 +1,6 @@
 <div class="container"> 
         <h3>Cadastrar Pessoa</h3>
-    <form #pessoaFormGroup="ngForm" novalidate>
+    <form #pessoaForm="ngForm" novalidate>
         <input type="hidden" class="form-control" name="idpessoa" [(ngModel)]="model.idpessoa" #idpessoa="ngModel">
         <div [ngClass]="getFormGroupClass(nome.valid,nome.pristine)">
             <label for="nome" class="form-control-label">Nome*</label>
@@ -35,19 +35,17 @@
             [(ngModel)]="model.peso" #peso="ngModel">
         </div>
         <div class="form-group">
-            <mat-label for="estadoselect">Estado*</mat-label>
+            <mat-label for="estado">Estado*</mat-label>
                     
                 <!--  <gt-estados [estado]="estado" (change)="onSelect($event.target.value)"></gt-estados> -->
-                    <mat-select class="form-control" [(ngModel)]="model.estado" 
-                                #estadoselect="ngModel" name="estadoselect" [(value)]="model.estado">   
-                        <mat-option>-- Selecione o Estado --</mat-option>        
-                        <mat-option *ngFor="let estado of estados" [value]= "estado">
-                            {{estado.nome}} - {{estado.sigla}}
+                    <mat-select placeholder="Selecione o Estado" class="form-control" [(ngModel)]="model.estado" name="estado">
+                        <mat-option *ngFor="let e of estados" [value]= "e">
+                            {{e.nome}} - {{e.sigla}}
                         </mat-option>
                     </mat-select> 
         </div>
         
-        <button type="submit" class="btn btn-success" (click)=salvar() [disabled]="!pessoaFormGroup.form.valid">Salvar</button>
+        <button type="submit" class="btn btn-success" (click)=salvar() [disabled]="!pessoaForm.form.valid">Salvar</button>
          <a class="btn btn-secondary" routerLink="/">Voltar </a>
     </form>
     </div>

@@ -19,7 +19,7 @@ import { a } from '@angular/core/src/render3';
 })
 export class PessoaFormComponent implements OnInit {
 
-  pessoaFormGroup: FormGroup;
+  pessoaForm: FormGroup;
 
   model: any = {};
 
@@ -39,13 +39,26 @@ export class PessoaFormComponent implements OnInit {
     this.notifier = notifier;
   }
 
+  updateEstados(estados){
+    this.estados = estados;
+    this.estados.sort((a,b) => a.nome.localeCompare(b.nome));
+    this.ajusteEstado();
+
+  }
+
+  ajusteEstado(){
+    if(this.model.estado){
+      let estado=this.estados.find(e=>e.id===this.model.estado.id);
+      this.model.estado=estado;  
+    }
+    
+  }
+
   ngOnInit(): void {
     
-    this.estadoService.listEstado().subscribe(estados => this.estados = estados);
-    this.estados.sort((a,b) => a.nome.localeCompare(b.nome));
-    this.model = {};
-    //console.log(this.activatedRoute.snapshot.params.id);
+    this.estadoService.listEstado().subscribe(estados => this.updateEstados(estados));
     
+    this.model = {};
     
       if(this.activatedRoute.snapshot.params.id){
         const id: number = this.activatedRoute.snapshot.params.id;
@@ -57,7 +70,7 @@ export class PessoaFormComponent implements OnInit {
             var datePipe = new DatePipe('en-US'); 
             var newDate = new Date(this.parseDate(this.model.dtnascimento));
             this.model.dtnascimento = datePipe.transform(newDate, 'yyyy-MM-dd');
-            //console.log("this.model.estado-- "+this.model.estado);
+            this.ajusteEstado();
            
         });
       }

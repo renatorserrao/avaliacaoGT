@@ -49,6 +49,7 @@ export class PessoaFormComponent implements OnInit {
   ajusteEstado(){
     if(this.model.estado){
       let estado=this.estados.find(e=>e.id===this.model.estado.id);
+      console.log('estado',estado);
       this.model.estado=estado;  
     }
     

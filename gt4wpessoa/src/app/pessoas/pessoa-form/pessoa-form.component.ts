@@ -75,7 +75,7 @@ export class PessoaFormComponent implements OnInit {
            
         });
       }
-          
+          window['xvm']=this;
   }
 
   validarCPF() {

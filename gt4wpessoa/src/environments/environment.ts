@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  host: 'http://avaliacao.jelastic.saveincloud.net/'
+  host: 'http://localhost:8080/cadastro'
 };
 
 /*

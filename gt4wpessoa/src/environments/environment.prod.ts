@@ -1,3 +1,5 @@
 export const environment = {
-  production: true
+  production: true,
+  host: 'http://avaliacao.jelastic.saveincloud.net/'
+
 };
